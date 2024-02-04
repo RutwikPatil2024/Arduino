@@ -1,0 +1,17 @@
+#include<Servo.h>
+Servo s1;
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(A0,INPUT);
+  s1.attach(3);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int val=analogRead(A0);
+  Serial.println(val);
+  int m=map(val,0,1023,0,180);
+  s1.write(m);
+  // delay(300);
+}
