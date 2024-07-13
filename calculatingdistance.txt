@@ -1,0 +1,25 @@
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(3,INPUT);
+  pinMode(4,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(4,LOW);
+  delayMicroseconds(2);
+  digitalWrite(4,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(4,LOW);
+
+  long time=pulseIn(3,HIGH);
+  float distance=(0.034*time)/2;
+  Serial.print("Distance : ");
+  Serial.print(distance);
+  Serial.println();
+
+  delay(200);
+
+}
